@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDN Auditor Form Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>My Website</h1>
+            <p>Embedded Auditor Form Example</p>
+        </div>
+    </div>
+
+    <!-- The form will be rendered here -->
+    <div id="auditor-form-container"></div>
+
+    <!-- Load the CDN script -->
+    <script src="https://cdn.yourdomain.com/auditor-form.umd.js"></script>
+    
+    <script>
+        // Initialize the form with custom configuration
+        window.initAuditorForm('auditor-form-container', {
+            // Your API configuration
+            apiUrl: 'https://your-api.com/api',
+            apiHeaders: {
+                'Authorization': 'Bearer your-token',
+                'x-api-key': 'your-api-key',
+                'x-custom-header': 'custom-value'
+            },
+            
+            // Optional: ReCAPTCHA configuration
+            recaptchaSiteKey: 'your-recaptcha-site-key',
+            
+            // Optional: Theme customization
+            theme: {
+                primaryColor: '#059669',
+                backgroundColor: '#f0fdf7',
+                borderRadius: '0.5rem'
+            },
+            
+            // Optional: Event callbacks
+            onSubmit: function(formData) {
+                console.log('Form submitted:', formData);
+            },
+            
+            onSuccess: function(response) {
+                console.log('Form submission successful:', response);
+                // You can redirect or show success message
+                alert('Application submitted successfully!');
+            },
+            
+            onError: function(error) {
+                console.error('Form submission error:', error);
+                // Handle errors
+            }
+        });
+    </script>
+</body>
+</html>
