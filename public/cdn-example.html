@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditor Form CDN Example</title>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+    <h1>Auditor Form CDN Integration Example</h1>
+    
+    <!-- Method 1: Auto-initialization -->
+    <div data-auditor-form></div>
+    
+    <!-- Method 2: Manual initialization -->
+    <div id="manual-form"></div>
+    
+    <!-- Load React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Load the Auditor Form -->
+    <script src="./dist/auditor-form.umd.js"></script>
+    
+    <script>
+        // Method 2: Manual initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            AuditorForm.init('manual-form');
+        });
+    </script>
+</body>
+</html>
