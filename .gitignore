@@ -4,7 +4,8 @@ node_modules/
 # Next.js build output
 .next/
 out/
-# dist/
+# dist/git rm -r --cached .next
+
 
 # Logs
 logs/
