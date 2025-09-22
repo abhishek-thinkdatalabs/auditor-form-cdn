@@ -1,20 +1,19 @@
 {
-  "name": "auditor-form-nextjs",
-  "version": "0.1.0",
+  "name": "auditor-form-cdn",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:cdn": "webpack --config webpack.config.js",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "vite",
+    "build": "vite build",
+    "build:cdn": "vite build --mode cdn",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.17.15",
     "axios": "^1.6.5",
     "lucide-react": "^0.344.0",
-    "next": "^14.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
@@ -23,24 +22,14 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@types/react-google-recaptcha": "^2.1.9",
+    "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
-    "css-loader": "^7.1.2",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
-    "html-webpack-plugin": "^5.6.4",
-    "mini-css-extract-plugin": "^2.9.4",
     "postcss": "^8.4.35",
-    "postcss-loader": "^8.2.0",
-    "style-loader": "^4.0.0",
     "tailwindcss": "^3.4.1",
-    "ts-loader": "^9.5.4",
     "typescript": "^5.5.3",
-    "webpack": "^5.101.3",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "vite": "^5.4.2"
   }
 }
