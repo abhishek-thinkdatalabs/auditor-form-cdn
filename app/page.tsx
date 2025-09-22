@@ -1,9 +1,9 @@
-import TestPage from '../test-page'
+import AuditorForm from './components/AuditorForm'
 
 export default function Home() {
   return (
     <main>
-      <TestPage />
+      <AuditorForm />
     </main>
   )
 }
