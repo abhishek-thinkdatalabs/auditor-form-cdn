@@ -1,9 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; // <-- react-dom (not /client)
+import ReactDOM from 'react-dom'; // use react-dom
 import AuditorForm from '../app/components/AuditorForm';
 import '../app/globals.css';
 
 export { AuditorForm };
+
+function renderComponent(container: HTMLElement) {
+  ReactDOM.render(React.createElement(AuditorForm), container);
+}
+
+function initializeForm() {
+  const containers = document.querySelectorAll('[data-auditor-form]');
+  containers.forEach((container) => {
+    if (!container.hasAttribute('data-auditor-form-initialized')) {
+      renderComponent(container as HTMLElement);
+      container.setAttribute('data-auditor-form-initialized', 'true');
+    }
+  });
+}
 
 if (typeof window !== 'undefined') {
   if (document.readyState === 'loading') {
@@ -13,23 +27,10 @@ if (typeof window !== 'undefined') {
   }
 }
 
-function initializeForm() {
-  const containers = document.querySelectorAll('[data-auditor-form]');
-  
-  containers.forEach((container) => {
-    if (container && !container.hasAttribute('data-auditor-form-initialized')) {
-      ReactDOM.render(React.createElement(AuditorForm), container);
-      container.setAttribute('data-auditor-form-initialized', 'true');
-    }
-  });
-}
-
 (window as any).AuditorForm = {
   init: (containerId: string) => {
     const container = document.getElementById(containerId);
-    if (container) {
-      ReactDOM.render(React.createElement(AuditorForm), container);
-    }
+    if (container) renderComponent(container);
   },
   Component: AuditorForm
 };
